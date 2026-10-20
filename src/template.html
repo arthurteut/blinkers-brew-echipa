@@ -334,6 +334,138 @@
     ol.steps li { grid-template-columns: 44px 1fr; gap: 12px; font-size: 1rem; }
     ol.steps li::before { width: 44px; height: 44px; font-size: 1.35rem; }
   }
+  /* ---------- Cursul de manager ---------- */
+  .cobrand { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+  .cobrand .logo { height: 40px; color: var(--ink); }
+  .cobrand .x { font: 400 1.4rem/1 var(--f-script); color: var(--ink-soft); }
+  .cobrand img { height: 30px; width: auto; }
+  .curs-lock { margin: 0 auto; transform: none; }
+  .curs-lock p { margin: 0 0 18px; }
+  .prog-wrap { margin-top: 26px; max-width: 760px; background: var(--paper); border: 2px solid var(--ink); padding: 18px 20px; }
+  .prog-top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+  .prog-top strong { font: 900 2.6rem/1 var(--f-display); font-stretch: 125%; }
+  .prog-top span { font: 400 .8rem/1.3 var(--f-mono); color: var(--ink-soft); }
+  .pbar { height: 16px; background: var(--paper-hi); border: 2px solid var(--ink); border-radius: 999px; overflow: hidden; }
+  .pbar i { display: block; height: 100%; background: var(--beer); transition: width .6s cubic-bezier(.2, .9, .3, 1); }
+  .prog-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+  .sync { font: 400 .74rem/1.3 var(--f-mono); color: var(--ink-soft); }
+  .sync::before { content: "●"; margin-right: 6px; color: #9c9c95; }
+  .sync.ok::before { color: #1f9d55; } .sync.pending::before { color: var(--beer); } .sync.off::before, .sync.bad::before { color: var(--warn); }
+  .sts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .st { font: 500 .72rem/1 var(--f-mono); padding: 6px 9px; border: 1.5px dashed var(--ink-soft); border-radius: 999px; color: var(--ink-soft); white-space: nowrap; }
+  .st.ok { border: 1.5px solid #1f9d55; background: #e3f4ea; color: #145c33; }
+  .st.bad { border: 1.5px solid var(--warn); background: #fbe9e7; color: var(--warn); }
+  .st.lock { border-style: solid; }
+  .mod-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .mod-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; border: 2px solid var(--ink); background: var(--paper-hi); text-decoration: none; transition: transform .3s cubic-bezier(.3, 1.5, .5, 1); }
+  .mod-card:hover { transform: translateY(-4px) rotate(-.6deg); box-shadow: 8px 8px 0 var(--ink); }
+  .mod-card h3 { font: 900 1.35rem/1.05 var(--f-display); font-stretch: 120%; text-transform: uppercase; }
+  .mod-card p { margin: 0; font-size: .92rem; color: var(--ink-soft); }
+  .mod-card.done { background: color-mix(in srgb, #1f9d55 8%, var(--paper-hi)); }
+  .mod-card.locked { opacity: .55; background: var(--paper); }
+  .mod-card.locked:hover { transform: none; box-shadow: none; }
+  .nota { margin: 4px 0 0; padding: 10px 14px; border-left: 4px solid var(--beer); background: var(--paper); font: italic 1.1rem/1.3 var(--f-script); }
+  .nota small { display: block; font: 400 .72rem/1.3 var(--f-mono); color: var(--ink-soft); margin-top: 4px; }
+  .log li { display: grid; grid-template-columns: 130px 1fr; gap: 12px; font-size: .93rem; }
+  .log li span { font: 400 .76rem/1.6 var(--f-mono); color: var(--ink-soft); }
+  @media (max-width: 640px) { .log li { grid-template-columns: 1fr; gap: 2px; } }
+  .locked-box { max-width: 640px; border: 2px dashed var(--ink); padding: 26px; background: var(--paper-hi); }
+  .locked-box h2 { font-size: 1.8rem; margin-bottom: 10px; }
+  .locked-box p { margin: 0 0 18px; }
+  .pn-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 44px; padding-top: 22px; border-top: 2px solid var(--ink); max-width: 860px; }
+
+  .curs-body { max-width: 860px; font-size: 1.02rem; }
+  .curs-body h2 { font: 900 clamp(1.4rem, 3.2vw, 2.1rem)/1.05 var(--f-display); font-stretch: 122%; text-transform: uppercase; margin: 52px 0 16px; }
+  .curs-body > h2:first-child { margin-top: 0; }
+  .curs-body h3 { font: 800 1.08rem/1.25 var(--f-display); font-stretch: 110%; text-transform: uppercase; margin: 30px 0 10px; }
+  .curs-body h4 { font-weight: 800; margin: 18px 0 8px; }
+  .curs-body p { margin: 0 0 14px; }
+  .curs-body .lead { font-size: 1.15rem; color: var(--ink-soft); }
+  .curs-body ul, .curs-body ol { margin: 0 0 16px; padding-left: 22px; }
+  .curs-body li { margin-bottom: 6px; }
+  .curs-body ul.dash { list-style: none; padding-left: 0; }
+  .curs-body ul.dash li { position: relative; padding-left: 20px; }
+  .curs-body ul.dash li::before { content: ""; position: absolute; left: 0; top: .62em; width: 10px; height: 3px; background: var(--beer); }
+  .curs-body .callout { margin: 24px 0; padding: 18px 22px; background: var(--ink); color: var(--chalk); }
+  .curs-body .callout p { margin: 0; font: italic 400 1.35rem/1.3 var(--f-script); }
+  .curs-body .note { font: 400 .8rem/1.5 var(--f-mono); color: var(--ink-soft); }
+  .curs-body .tscroll { overflow-x: auto; margin: 14px 0 22px; border: 2px solid var(--ink); background: var(--paper-hi); }
+  .curs-body table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 520px; }
+  .curs-body th { text-align: left; font: 500 .7rem/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--chalk); background: var(--ink); padding: 10px 12px; }
+  .curs-body td { padding: 10px 12px; border-bottom: 1.5px solid var(--line); vertical-align: top; }
+  .curs-body td.c, .curs-body th.c { text-align: center; }
+  .curs-body ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 14px 0 18px; display: grid; gap: 8px; }
+  .curs-body ol.steps li { counter-increment: s; display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: start; background: var(--paper-hi); border: 1.5px solid var(--ink); padding: 10px 12px; margin: 0; }
+  .curs-body ol.steps li::before { content: counter(s); width: 32px; height: 32px; border-radius: 50%; background: var(--beer); display: grid; place-items: center; font: 900 .95rem/1 var(--f-display); }
+  .curs-body .check { display: block; margin: 18px 0; padding: 18px 20px; border: 2px solid var(--ink); background: var(--paper-hi); font: inherit; color: inherit; }
+  .curs-body .check h4 { margin: 0 0 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font: 900 1rem/1.2 var(--f-display); font-stretch: 112%; text-transform: uppercase; }
+  .curs-body .check .prog { font: 500 .78rem/1 var(--f-mono); color: var(--ink-soft); margin-left: auto; }
+  .curs-body .check h4 button { font: 500 .7rem/1 var(--f-mono); border: 1.5px solid var(--ink); background: none; border-radius: 999px; padding: 6px 10px; }
+  .curs-body .check label { display: flex; gap: 12px; align-items: flex-start; padding: 9px 0; border-bottom: 1.5px dashed var(--line); cursor: pointer; }
+  .curs-body .check label:last-child { border-bottom: 0; }
+  .curs-body .check input[type=checkbox] { width: 20px; height: 20px; flex: none; margin-top: 2px; accent-color: var(--ink); }
+  .curs-body .check label.done { color: var(--ink-soft); text-decoration: line-through; text-decoration-color: var(--beer); text-decoration-thickness: 2px; }
+  .curs-body .calc { margin: 18px 0; padding: 18px 20px; border: 2px solid var(--ink); background: var(--paper-hi); }
+  .curs-body .calc h4 { margin: 0 0 10px; font: 900 1rem/1.2 var(--f-display); text-transform: uppercase; }
+  .curs-body .calc .row { display: grid; grid-template-columns: 1fr 130px; gap: 10px; align-items: center; padding: 7px 0; border-bottom: 1.5px dashed var(--line); }
+  .curs-body .calc label { font-size: .92rem; }
+  .curs-body .calc input { font: 600 1rem var(--f-display); padding: 8px 10px; border: 2px solid var(--ink); background: var(--paper); text-align: right; width: 100%; border-radius: 0; }
+  .curs-body .calc .out { margin-top: 14px; background: var(--ink); color: var(--chalk); padding: 14px 16px; }
+  .curs-body .calc .out div { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; font-size: .93rem; }
+  .curs-body .calc .out div.hi { border-top: 1.5px solid #3a3a37; margin-top: 6px; padding-top: 8px; font-size: 1.05rem; color: var(--beer); }
+  .curs-body .tiles { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 14px 0 20px; }
+  .curs-body .tile { border: 2px solid var(--ink); background: var(--paper-hi); padding: 12px 14px; }
+  .curs-body .tile .v { font: 900 1.5rem/1.1 var(--f-display); font-stretch: 120%; }
+  .curs-body .tile .l { font: 500 .7rem/1.3 var(--f-mono); text-transform: uppercase; color: var(--ink-soft); }
+  .curs-body .tile .d { font-size: .85rem; color: var(--ink-soft); margin-top: 4px; }
+  .curs-body .q { margin: 26px 0; padding: 18px 20px; border: 2px dashed var(--ink); background: var(--paper-hi); }
+  .curs-body .q h4 { margin: 0 0 8px; font: 900 1rem/1.2 var(--f-display); text-transform: uppercase; }
+  .curs-body .q ul { margin: 0; }
+  @media (max-width: 520px) { .curs-body .calc .row { grid-template-columns: 1fr 104px; } }
+
+  .flow { max-width: 860px; margin-top: 52px; display: grid; gap: 14px; }
+  .flow-step { border: 2px solid var(--ink); background: var(--paper-hi); padding: 20px; }
+  .flow-step.ok { background: color-mix(in srgb, #1f9d55 8%, var(--paper-hi)); }
+  .fs-head { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .fs-head h3 { font: 900 1.15rem/1.1 var(--f-display); font-stretch: 118%; text-transform: uppercase; }
+  .fs-n { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--beer); font: 900 1rem/1 var(--f-display); }
+  .flow-step.ok .fs-n { background: #1f9d55; color: #fff; }
+  .flow-step p { margin: 0 0 12px; }
+  .fs-done { font: 400 .82rem/1.4 var(--f-mono); color: var(--ink-soft); }
+  .flow-step textarea { margin: 8px 0 12px; resize: vertical; font: inherit; }
+  .aplica { background: var(--ink); color: var(--chalk); padding: 16px 18px; margin-bottom: 14px; }
+  .aplica p { margin: 0; font: italic 400 1.25rem/1.35 var(--f-script); }
+  .qz { padding: 14px 0; border-bottom: 1.5px dashed var(--line); }
+  .qz-q { margin: 0 0 10px; font-weight: 600; }
+  .qz-opts { display: grid; gap: 8px; }
+  .qz-o { text-align: left; padding: 11px 14px; border: 2px solid var(--ink); background: var(--paper); border-radius: 0; font-size: .95rem; line-height: 1.35; }
+  .qz-o:hover:not(:disabled) { background: color-mix(in srgb, var(--beer) 22%, var(--paper)); }
+  .qz-o:disabled { cursor: default; opacity: .7; }
+  .qz-o.pick { background: var(--ink); color: var(--chalk); opacity: 1; }
+  .qz-o.good { background: #e3f4ea; border-color: #1f9d55; color: #145c33; opacity: 1; }
+  .qz-o.bad { background: #fbe9e7; border-color: var(--warn); color: var(--warn); opacity: 1; }
+  .qz-e { margin: 10px 0 0; padding: 10px 12px; font-size: .92rem; border-left: 4px solid; }
+  .qz-e.good { border-color: #1f9d55; background: #e3f4ea; }
+  .qz-e.bad { border-color: var(--warn); background: #fbe9e7; }
+  .qz-res { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0; padding: 14px 16px; border: 2px solid var(--ink); background: var(--paper); }
+  .qz-res b { font: 900 1.8rem/1 var(--f-display); font-stretch: 120%; }
+  .qz-res.good { border-color: #1f9d55; background: #e3f4ea; }
+  .qz-res.bad { border-color: var(--warn); background: #fbe9e7; }
+  .qz-res .sts { flex-basis: 100%; }
+  .widget { margin: 18px 0 28px; padding: 20px; border: 2px solid var(--ink); background: var(--paper-hi); }
+  .widget h3 { margin-top: 0; }
+  .auto-row { padding: 12px 0; border-bottom: 1.5px dashed var(--line); }
+  .auto-row b { display: block; margin-bottom: 8px; }
+  .lv { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .lv button { padding: 9px 6px; border: 2px solid var(--ink); background: var(--paper); font: 500 .74rem/1.2 var(--f-mono); }
+  .lv button span { display: block; font: 900 1.2rem/1 var(--f-display); margin-bottom: 3px; }
+  .lv button.on { background: var(--beer); }
+  @media (max-width: 520px) { .lv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .plan-row { display: grid; grid-template-columns: 36px 1fr; gap: 8px 12px; padding: 14px 0; border-bottom: 1.5px dashed var(--line); }
+  .plan-row .fs-n { grid-row: span 4; }
+  .plan-row .field { padding: 10px 12px; font-size: .95rem; }
+  .plan-d { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+
   @media print {
     header.top, .filterbar, footer, #results { display: none !important; }
     .proc { break-inside: avoid; }
@@ -376,6 +508,7 @@
         <a href="#/procese" data-nav="procese">Procese</a>
         <a href="#/proceduri" data-nav="proceduri">Proceduri</a>
         <a href="#/roluri" data-nav="roluri">Roluri</a>
+        <a href="#/curs" data-nav="curs">Curs manager</a>
         <a href="#/ghid" data-nav="ghid">Cum funcționează</a>
       </nav>
     </div>
@@ -432,19 +565,20 @@ if (!REDUCED) {
 
 // ---------- Decriptare ----------
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-async function decrypt(pw) {
+async function decrypt(pw, payload = PAYLOAD) {
   const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
   const key = await crypto.subtle.deriveKey(
-    { name: 'PBKDF2', salt: b64(PAYLOAD.salt), iterations: PAYLOAD.iter, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt: b64(payload.salt), iterations: payload.iter, hash: 'SHA-256' },
     base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
-  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(PAYLOAD.iv) }, key, b64(PAYLOAD.ct));
+  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(payload.iv) }, key, b64(payload.ct));
   return JSON.parse(new TextDecoder().decode(pt));
 }
-const store = {
-  get() { try { return localStorage.getItem(LS_KEY); } catch (e) { return null; } },
-  set(v) { try { localStorage.setItem(LS_KEY, v); } catch (e) {} },
-  clear() { try { localStorage.removeItem(LS_KEY); } catch (e) {} },
-};
+const keyStore = k => ({
+  get() { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  clear() { try { localStorage.removeItem(k); } catch (e) {} },
+});
+const store = keyStore(LS_KEY);
 async function unlock(pw, remember) {
   D = await decrypt(pw);
   if (remember) store.set(pw);
@@ -452,6 +586,7 @@ async function unlock(pw, remember) {
   document.getElementById('lock').classList.add('hidden');
   document.getElementById('app').classList.remove('hidden');
   route();
+  cursAutoUnlock();
 }
 document.getElementById('lockForm').addEventListener('submit', async e => {
   e.preventDefault();
@@ -461,7 +596,7 @@ document.getElementById('lockForm').addEventListener('submit', async e => {
   catch (x) { err.textContent = 'Parolă greșită. Cere-o managerului de taproom.'; lockEyes.blink(); }
   btn.disabled = false; btn.textContent = 'Intră';
 });
-document.getElementById('logout').addEventListener('click', () => { store.clear(); location.hash = ''; location.reload(); });
+document.getElementById('logout').addEventListener('click', () => { store.clear(); cursStore.clear(); location.hash = ''; location.reload(); });
 (async () => {
   if (!PAYLOAD) { document.getElementById('err').textContent = 'Pagina nu a fost construită încă (lipsește conținutul).'; return; }
   const saved = store.get();
@@ -536,11 +671,12 @@ function parseHash() {
   return { parts: path.split('/').filter(Boolean).map(dec), params };
 }
 window.addEventListener('hashchange', () => { if (D) route(); });
-function route() {
+function route(pastreaz) {
   const { parts, params } = parseHash();
   const [a, b] = parts;
   let html, nav = 'home';
-  if (a === 'p' && P[b]) { html = viewProcess(P[b]); nav = 'procese'; }
+  if (a === 'curs') { html = viewCurs(b, parts[2]); nav = 'curs'; }
+  else if (a === 'p' && P[b]) { html = viewProcess(P[b]); nav = 'procese'; }
   else if (a === 'procese') { html = viewProcesses(params); nav = 'procese'; }
   else if (a === 'pr' && PROC[b]) { html = viewProcedure(PROC[b]); nav = 'proceduri'; }
   else if (a === 'proceduri') { html = viewProcedures(params); nav = 'proceduri'; }
@@ -553,8 +689,8 @@ function route() {
   $('#nav').classList.remove('open'); $('#menuBtn').setAttribute('aria-expanded', 'false');
   closeResults();
   wireView();
-  reveal();
-  if (!params.keep) window.scrollTo({ top: 0, behavior: 'instant' });
+  if (a === 'curs') wireCurs(); else reveal();
+  if (!params.keep && !pastreaz) window.scrollTo({ top: 0, behavior: 'instant' });
   const open = params.deschide && document.getElementById('proc-' + params.deschide);
   if (open) { open.open = true; setTimeout(() => open.scrollIntoView({ block: 'start' }), 30); }
 }
@@ -607,7 +743,7 @@ function viewHome() {
   </div></section>
   <div class="marquee" aria-hidden="true"><div class="mq-track">${[0, 1].map(() => `<span>Draft</span><i></i><span>Hot dog</span><i></i><span class="script">Find your portal.</span><i></i><span>Taproom</span><i></i><span>Industriei 7</span><i></i>`).join('')}</div></div>
   <section class="block"><div class="wrap">
-    <div class="block-head"><div><span class="eyebrow">Ce rol ai?</span><h2 class="mega">Fișa ta <span class="script">de lucru</span></h2></div></div>
+    <div class="block-head"><div><span class="eyebrow">Ce rol ai?</span><h2 class="mega">Fișa ta <span class="script">de lucru</span></h2></div><a class="btn ghost" href="#/curs">Curs manager →</a></div>
     <div class="role-grid">${D.roluri.map(roleCard).join('')}</div>
   </div></section>
   ${fisaHtml()}`;
@@ -807,7 +943,7 @@ function viewRole(r) {
       <div class="stat"><strong>${Math.round(minutes)}</strong><span>minute de task-uri zilnice (estimat)</span></div>
       <div class="stat"><strong>${lead.length}</strong><span>procese de care răspunzi</span></div>
     </div>
-    <p style="margin:0 0 28px"><a class="btn" href="#/procese?rol=${enc(r.cod)}">Procesele, cu task-urile mele marcate →</a></p>
+    <p style="margin:0 0 28px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#/procese?rol=${enc(r.cod)}">Procesele, cu task-urile mele marcate →</a>${r.cod === 'MT' ? '<a class="btn ghost" href="#/curs">Cursul de manager →</a>' : ''}</p>
     ${pas ? `<h2 class="section-title">Ce faci, pas cu pas</h2>${pas}` : ''}
     ${procs.length ? `<h2 class="section-title" style="margin-top:44px">Procedurile tale</h2><div class="proc-list">${procs.map(procRow).join('')}</div>` : ''}
   </div></section>`;
@@ -842,6 +978,379 @@ function viewGuide() {
       <p style="margin:10px 0 0">Întreabă managerul de taproom${mt ? ` (${esc(mt)})` : ''}. Dacă o situație se repetă și nu e în ghid, spune-i: așa se scrie următoarea procedură.</p></div>
   </div></section>`;
 }
+
+// ---------- Cursul de manager ----------
+// Criptat separat, cu parola de manager. Progresul se ține pe telefon și se
+// sincronizează în Supabase, într-un rând la care ajungi doar cu cheia derivată
+// din parola de manager. Adresa și cheia publică de mai jos sunt publice prin design.
+const CURS_PAYLOAD = /*CURS*/null;
+const SB = { url: 'https://tckcmfdolaickwtxglvt.supabase.co', key: 'sb_publishable_99H3ZqilRUwb2gK-_jSbLQ_VUWfkPMm' };
+const cursStore = keyStore('bb-curs-parola'), progStore = keyStore('bb-curs-progres');
+const ORDINE = ['00', '01', '02', '03', '04', '05', '06'];
+const COMPETENTE = [['01', 'Operațiuni'], ['02', 'Produs'], ['03', 'Client'], ['04', 'Oameni'], ['05', 'Bani']];
+const NIVELE = ['Nu încă', 'Cu sprijin', 'Autonom', 'Predă altora'];
+let C = null, CKEY = '', ST = null, SYNC = { st: 'idle', at: null }, pushTimer = null, FT = {};
+
+async function sha256hex(s) {
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
+}
+function normal(s) {
+  s = s && typeof s === 'object' ? s : {};
+  return { v: 1, ts: s.ts || 0, mod: s.mod || {}, check: s.check || {}, calc: s.calc || {},
+    final: { auto: {}, test: null, plan: [], ...(s.final || {}) }, log: s.log || [] };
+}
+async function rpc(fn, body) {
+  const r = await fetch(`${SB.url}/rest/v1/rpc/${fn}`, { method: 'POST', headers: { apikey: SB.key, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(fn + ' ' + r.status);
+  return r.json();
+}
+function setSync(st, at) {
+  SYNC = { st, at: at || SYNC.at };
+  const el = document.getElementById('syncPill');
+  if (el) { el.className = 'sync ' + st; el.textContent = syncText(); }
+}
+function syncText() {
+  const t = SYNC.at ? new Date(SYNC.at).toLocaleString('ro-RO', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+  return { ok: `Salvat online${t ? ' · ' + t : ''}`, pending: 'Se salvează…', off: 'Fără internet: salvat pe telefon, se trimite când revine netul', bad: 'Progresul nu se poate salva online (cheie necunoscută)', idle: 'Se încarcă progresul…' }[SYNC.st];
+}
+function saveLocal() { progStore.set(JSON.stringify(ST)); }
+async function pull() {
+  try {
+    const r = await rpc('blinkers_curs_citeste', { p_cheie: CKEY });
+    if (!r) { setSync('bad'); return false; }
+    const remote = normal(r.data);
+    if (remote.ts > ST.ts) { ST = remote; saveLocal(); setSync('ok', r.updated_at); return true; }
+    if (ST.ts > remote.ts) push(); else setSync('ok', r.updated_at);
+  } catch (e) { setSync('off'); }
+  return false;
+}
+async function push() {
+  clearTimeout(pushTimer);
+  try { setSync('ok', await rpc('blinkers_curs_salveaza', { p_cheie: CKEY, p_data: ST })); }
+  catch (e) { setSync('off'); }
+}
+addEventListener('online', () => { if (C) push(); });
+function salveaza(eveniment) {
+  ST.ts = Date.now();
+  if (eveniment) ST.log = [{ ts: new Date().toISOString(), t: eveniment }, ...ST.log].slice(0, 60);
+  saveLocal(); setSync('pending');
+  clearTimeout(pushTimer); pushTimer = setTimeout(push, 600);
+}
+async function unlockCurs(pw, remember) {
+  C = await decrypt(pw, CURS_PAYLOAD);
+  CKEY = await sha256hex('bb-curs:' + pw);
+  if (remember) cursStore.set(pw);
+  let local = null;
+  try { local = JSON.parse(progStore.get() || 'null'); } catch (e) {}
+  ST = normal(local);
+  setSync('idle');
+  await pull();
+}
+async function cursAutoUnlock() {
+  const pw = cursStore.get();
+  if (!pw || !CURS_PAYLOAD || C) return;
+  try { await unlockCurs(pw, true); if (parseHash().parts[0] === 'curs') rerender(); }
+  catch (e) { cursStore.clear(); }
+}
+function rerender() { const y = scrollY; route(true); scrollTo(0, y); }
+
+// Starea fiecărui modul
+const M = id => ST.mod[id] || (ST.mod[id] = {});
+const modul = id => C.module.find(m => m.id === id);
+const nrModul = id => id === '06' ? 'Final' : `Modulul ${+id}`;
+const intrebariDin = id => C.intrebari.map((q, i) => ({ ...q, i })).filter(q => q.modul === id);
+const finalTrecut = t => !!t && t.ok >= 16 && Object.values(t.per).every(x => x >= 2);
+function pasi(id) {
+  if (id === '06') {
+    const f = ST.final;
+    return [
+      { k: 'auto', t: 'Autoevaluarea', ok: COMPETENTE.every(([c]) => f.auto[c]) },
+      { k: 'test', t: 'Testul final (16/20)', ok: finalTrecut(f.test) },
+      { k: 'plan', t: 'Planul de 90 de zile', ok: f.plan.some(r => r && r.o && r.o.trim()) },
+    ];
+  }
+  const m = ST.mod[id] || {}, qs = intrebariDin(id);
+  return [
+    { k: 'citit', t: 'Citit', ok: !!m.citit },
+    ...(qs.length ? [{ k: 'test', t: `Mini-test (min. 3/${qs.length})`, ok: !!(m.test && m.test.trecut) }] : []),
+    { k: 'aplicat', t: 'Aplicat în taproom', ok: !!m.aplicat },
+  ];
+}
+const complet = id => pasi(id).every(p => p.ok);
+const deschis = id => { const i = ORDINE.indexOf(id); return i <= 0 || complet(ORDINE[i - 1]); };
+function progres() {
+  const toti = ORDINE.flatMap(pasi);
+  return { gata: toti.filter(p => p.ok).length, total: toti.length };
+}
+const dataRo = iso => iso ? new Date(iso).toLocaleDateString('ro-RO', { day: 'numeric', month: 'short' }) : '';
+const ATC = '<div class="cobrand"><span class="logo"></span><span class="x">×</span><img src="assets/img/atc-logo.png" alt="Around The Corner Development"></div>';
+
+function viewCurs(b, c) {
+  if (!CURS_PAYLOAD) return `<section class="band"><div class="wrap"><h1 class="mega">Curs manager</h1><p class="sub">Cursul nu a fost inclus în această versiune a ghidului.</p></div></section>`;
+  if (!C) return cursLock();
+  if (b === 'm' && modul(c)) return viewModul(modul(c));
+  return viewCursAcasa();
+}
+function cursLock() {
+  return `
+  <section class="band curs-band"><div class="wrap">
+    <div class="crumbs"><a href="#/">Acasă</a> / Curs manager</div>
+    <span class="eyebrow">Blinkers Brew × Around The Corner Development</span>
+    <h1 class="mega">Curs Manager <span class="script">Tap Room</span></h1>
+    ${ATC}
+  </div></section>
+  <section class="block"><div class="wrap">
+    <form class="lock-card curs-lock" id="cursForm" autocomplete="on">
+      <span class="eyebrow">Doar pentru manager</span>
+      <h2 class="mega" style="font-size:1.9rem;margin:10px 0 8px">Parola de manager</h2>
+      <p>Cursul conține cifrele locației (P&amp;L, costuri), de aceea are o parolă separată de parola echipei.</p>
+      <input type="text" name="username" value="manager" autocomplete="username" hidden>
+      <input class="field" type="password" id="cursPw" name="password" placeholder="Parola de manager" autocomplete="current-password" required>
+      <button class="btn" type="submit" id="cursBtn">Deschide cursul</button>
+      <label class="check"><input type="checkbox" id="cursRemember" checked> Ține-mă minte pe acest dispozitiv</label>
+      <div class="err" id="cursErr" role="alert"></div>
+    </form>
+  </div></section>`;
+}
+function statusModul(id) {
+  return pasi(id).map(p => `<span class="st ${p.ok ? 'ok' : ''}">${p.ok ? '✓ ' : ''}${esc(p.t)}</span>`).join('');
+}
+function urmatorul() { return ORDINE.find(id => !complet(id)); }
+function viewCursAcasa() {
+  const { gata, total } = progres(), pct = Math.round(gata / total * 100), next = urmatorul();
+  const card = m => {
+    const open = deschis(m.id), done = complet(m.id), a = ST.mod[m.id]?.aplicat;
+    return `<a class="mod-card ${open ? '' : 'locked'} ${done ? 'done' : ''}" href="#/curs/m/${m.id}">
+      <span class="eyebrow">${esc(nrModul(m.id))} · ${esc(m.kicker.split('·').pop().trim())}</span>
+      <h3>${esc(m.titlu)}</h3><p>${esc(m.sub)}</p>
+      <div class="sts">${open ? statusModul(m.id) : `<span class="st lock">🔒 Se deschide după ${esc(nrModul(ORDINE[ORDINE.indexOf(m.id) - 1]))}</span>`}</div>
+      ${a ? `<blockquote class="nota">„${esc(a.nota)}” <small>aplicat ${esc(dataRo(a.ts))}</small></blockquote>` : ''}
+    </a>`;
+  };
+  const ft = ST.final.test;
+  return `
+  <section class="band curs-band"><div class="wrap">
+    <div class="crumbs"><a href="#/">Acasă</a> / Curs manager</div>
+    <span class="eyebrow">Blinkers Brew × Around The Corner Development</span>
+    <h1 class="mega">Curs Manager <span class="script">Tap Room</span></h1>
+    <p class="sub">Un modul pe săptămână: îl citești, treci mini-testul și aplici sarcina în taproom. Abia apoi se deschide următorul.</p>
+    ${ATC}
+    <div class="prog-wrap">
+      <div class="prog-top"><strong>${pct}%</strong><span>${gata} din ${total} pași${ft ? ` · test final ${ft.ok}/20` : ''}</span></div>
+      <div class="pbar"><i style="width:${pct}%"></i></div>
+      <div class="prog-actions">
+        ${next ? `<a class="btn" href="#/curs/m/${next}">${ST.ts ? 'Continuă' : 'Începe'}: ${esc(modul(next).titlu)} →</a>` : '<span class="st ok">✓ Curs terminat</span>'}
+        <span id="syncPill" class="sync ${SYNC.st}">${esc(syncText())}</span>
+      </div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap">
+    <div class="block-head"><div><span class="eyebrow">Cele 7 etape</span><h2 class="mega">Modulele</h2></div></div>
+    <div class="mod-grid">${C.module.map(card).join('')}</div>
+  </div></section>
+  <section class="block hi"><div class="wrap">
+    <div class="block-head"><div><span class="eyebrow">Ce s-a întâmplat</span><h2 class="mega">Activitate</h2></div></div>
+    ${ST.log.length ? `<ul class="simple-list log">${ST.log.slice(0, 12).map(l => `<li><span>${esc(new Date(l.ts).toLocaleString('ro-RO', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }))}</span>${esc(l.t)}</li>`).join('')}</ul>` : '<p class="lvl4">Încă nimic. Activitatea apare aici pe măsură ce parcurgi cursul.</p>'}
+  </div></section>
+  <section class="block"><div class="wrap curs-body">${C.intro}
+    <p style="margin-top:28px"><button class="btn ghost" type="button" data-act="curs-iesi">Ieși din curs pe acest dispozitiv</button></p>
+  </div></section>`;
+}
+function viewModul(m) {
+  const i = ORDINE.indexOf(m.id), prev = ORDINE[i - 1], next = ORDINE[i + 1];
+  const head = `
+  <section class="band curs-band"><div class="wrap">
+    <div class="crumbs"><a href="#/curs">Curs manager</a> / ${esc(nrModul(m.id))}</div>
+    <span class="eyebrow">${esc(m.kicker)}</span>
+    <h1 class="mega">${esc(m.titlu)}</h1>
+    <p class="sub">${esc(m.sub)}</p>
+    <div class="chips" style="margin-top:16px">${m.meta.map(x => `<span class="person">${esc(x)}</span>`).join('')}</div>
+    ${deschis(m.id) ? `<div class="sts" style="margin-top:16px">${statusModul(m.id)}</div>` : ''}
+  </div></section>`;
+  if (!deschis(m.id)) return head + `<section class="block"><div class="wrap"><div class="locked-box">
+    <h2 class="mega">🔒 Încă închis</h2>
+    <p>${esc(nrModul(m.id))} se deschide după ce termini ${esc(nrModul(prev))}: îl citești, treci mini-testul și aplici sarcina în taproom.</p>
+    <a class="btn" href="#/curs/m/${prev}">Mergi la ${esc(modul(prev).titlu)} →</a></div></div></section>`;
+  return head + `
+  <section class="block"><div class="wrap">
+    <div class="curs-body" data-m="${m.id}">${m.html}</div>
+    ${m.id === '06' ? '' : flowHtml(m)}
+    <div class="pn-row">
+      ${prev ? `<a class="btn ghost" href="#/curs/m/${prev}">← ${esc(modul(prev).titlu)}</a>` : '<a class="btn ghost" href="#/curs">← Curs</a>'}
+      ${next ? (complet(m.id) ? `<a class="btn" href="#/curs/m/${next}">${esc(modul(next).titlu)} →</a>` : `<span class="st lock">🔒 ${esc(modul(next).titlu)}: termină pașii de mai sus</span>`) : '<a class="btn" href="#/curs">Înapoi la curs →</a>'}
+    </div>
+  </div></section>`;
+}
+function flowHtml(m) {
+  const s = M(m.id), qs = intrebariDin(m.id);
+  const pas = (n, titlu, ok, corp) => `<div class="flow-step ${ok ? 'ok' : ''}"><div class="fs-head"><span class="fs-n">${ok ? '✓' : n}</span><h3>${titlu}</h3></div>${corp}</div>`;
+  const citit = pas(1, 'Am citit modulul', s.citit,
+    s.citit ? `<p class="fs-done">Citit pe ${esc(dataRo(s.citit))}.</p>` : `<p>Când ai terminat de citit tot modulul, marchează-l.</p><button class="btn" type="button" data-act="citit" data-m="${m.id}">Am citit modulul</button>`);
+  let test = '';
+  if (qs.length) {
+    const t = s.test || { ans: {} }, ans = t.ans || {};
+    const raspunse = qs.filter(q => ans[q.i] !== undefined), ok = qs.filter(q => ans[q.i] === q.c).length;
+    const corp = qs.map((q, k) => {
+      const a = ans[q.i], gata = a !== undefined;
+      return `<div class="qz"><p class="qz-q"><b>${k + 1}.</b> ${esc(q.q)}</p><div class="qz-opts">
+        ${q.a.map((o, j) => `<button type="button" class="qz-o ${gata && j === q.c ? 'good' : ''} ${gata && j === a && a !== q.c ? 'bad' : ''}" data-act="q" data-m="${m.id}" data-q="${q.i}" data-a="${j}" ${gata ? 'disabled' : ''}>${esc(o)}</button>`).join('')}
+        </div>${gata ? `<p class="qz-e ${a === q.c ? 'good' : 'bad'}"><b>${a === q.c ? 'Corect.' : 'Nu chiar.'}</b> ${esc(q.e)}</p>` : ''}</div>`;
+    }).join('');
+    const final = raspunse.length === qs.length
+      ? `<div class="qz-res ${ok >= 3 ? 'good' : 'bad'}"><b>${ok}/${qs.length}</b> ${ok >= 3 ? 'Trecut.' : 'Ai nevoie de minimum 3. Recitește secțiunile și reia testul.'}<button class="btn ghost" type="button" data-act="q-reset" data-m="${m.id}">Reia testul</button></div>` : '';
+    test = pas(2, 'Mini-test', t.trecut, `${t.trecut && raspunse.length < qs.length ? '<p class="fs-done">Trecut. Îl poți relua oricând.</p>' : ''}${corp}${final}`);
+  }
+  const a = s.aplicat;
+  const aplicat = pas(qs.length ? 3 : 2, 'De aplicat săptămâna asta', a, `<div class="aplica">${m.aplicat}</div>
+    ${a ? `<blockquote class="nota">„${esc(a.nota)}” <small>aplicat ${esc(dataRo(a.ts))}</small></blockquote><button class="btn ghost" type="button" data-act="aplicat-edit" data-m="${m.id}">Modifică</button>`
+      : s.citit ? `<label class="eyebrow" for="nota-${m.id}">Ce ai făcut concret în taproom?</label>
+        <textarea class="field" id="nota-${m.id}" rows="3" placeholder="Ex.: am afișat SOP-ul în camera rece; Cristina a schimbat un keg doar după hârtie și a rămas neclar pasul 4."></textarea>
+        <button class="btn" type="button" data-act="aplicat" data-m="${m.id}">Am aplicat</button><div class="err" id="err-${m.id}"></div>`
+      : '<p class="fs-done">Întâi citește modulul.</p>'}`);
+  return `<div class="flow" id="flow"><span class="eyebrow">Ca să termini ${esc(nrModul(m.id))}</span>${citit}${test}${aplicat}</div>`;
+}
+
+// Componentele paginii de evaluare
+function widgetAuto() {
+  const f = ST.final.auto, suma = COMPETENTE.reduce((n, [c]) => n + (f[c] || 0), 0), toate = COMPETENTE.every(([c]) => f[c]);
+  return `<div class="widget"><h3>Autoevaluarea ta</h3><p class="note">Alege nivelul la care ești azi la fiecare competență. Apoi o discutați cu Arthur.</p>
+    ${COMPETENTE.map(([c, n]) => `<div class="auto-row"><b>${n}</b><div class="lv">${NIVELE.map((l, j) => `<button type="button" class="${f[c] === j + 1 ? 'on' : ''}" data-act="auto" data-c="${c}" data-v="${j + 1}"><span>${j + 1}</span>${l}</button>`).join('')}</div></div>`).join('')}
+    ${toate ? `<div class="qz-res ${suma >= 15 ? 'good' : ''}"><b>${suma}/20</b> ${suma < 10 ? 'Cursul se reia modul cu modul, cu sprijin săptămânal.' : suma < 15 ? 'Plan de 90 de zile pe ariile cu 1 și 2.' : 'Ești autonom; următorul pas e să predai cursul altcuiva.'}</div>` : ''}</div>`;
+}
+function widgetTest() {
+  const t = ST.final.test;
+  const per = t ? COMPETENTE.map(([c, n]) => `<span class="st ${t.per[c] >= 2 ? 'ok' : 'bad'}">${n} ${t.per[c]}/4</span>`).join('') : '';
+  const qs = C.intrebari.map((q, i) => {
+    const ales = t ? t.ans[i] : FT[i];
+    return `<div class="qz"><p class="qz-q"><b>${i + 1}.</b> ${esc(q.q)} <span class="note">(${esc(COMPETENTE.find(([c]) => c === q.modul)[1])})</span></p><div class="qz-opts">
+      ${q.a.map((o, j) => `<button type="button" class="qz-o ${ales === j ? 'pick' : ''} ${t && j === q.c ? 'good' : ''} ${t && ales === j && j !== q.c ? 'bad' : ''}" data-act="ft" data-q="${i}" data-a="${j}" ${t ? 'disabled' : ''}>${esc(o)}</button>`).join('')}
+      </div>${t && ales !== q.c ? `<p class="qz-e bad">${esc(q.e)}</p>` : ''}</div>`;
+  }).join('');
+  const n = Object.keys(FT).length;
+  return `<div class="widget">${t ? `<div class="qz-res ${finalTrecut(t) ? 'good' : 'bad'}"><b>${t.ok}/20</b> ${finalTrecut(t) ? 'Trecut.' : t.ok >= 12 ? 'Aproape: reia modulele slabe.' : 'Reia cursul modul cu modul.'} <small>${esc(dataRo(t.ts))}</small><div class="sts">${per}</div></div>` : ''}
+    ${qs}
+    ${t ? `<button class="btn ghost" type="button" data-act="ft-reset">Reia testul</button>` : `<button class="btn" type="button" data-act="ft-score" ${n < 20 ? 'disabled' : ''}>Calculează punctajul (${n}/20 răspunse)</button>`}</div>`;
+}
+function widgetPlan() {
+  const ex = C.plan_exemple;
+  const camp = (i, k, ph) => `<input class="field" data-act="plan" data-i="${i}" data-k="${k}" placeholder="${esc(ph)}" value="${esc(ST.final.plan[i]?.[k] || '')}">`;
+  return `<div class="widget"><h3>Planul tău</h3><p class="note">Cel mult trei obiective. Exemple: ${ex.map(e => `${esc(e[0])} (${esc(e[1])}, ${esc(e[2])})`).join(' · ')}.</p>
+    ${[0, 1, 2].map(i => `<div class="plan-row"><span class="fs-n">${i + 1}</span>
+      ${camp(i, 'o', 'Obiectiv')}${camp(i, 'ind', 'Indicator: cum se măsoară')}${camp(i, 't', 'Țintă la 90 de zile')}
+      <div class="plan-d">${camp(i, 'd30', '30 zile')}${camp(i, 'd60', '60 zile')}${camp(i, 'd90', '90 zile')}</div></div>`).join('')}</div>`;
+}
+
+// Calculatoarele din curs (Modulul 1 și 5)
+const fmt = (x, d = 2) => (Math.round(x * 10 ** d) / 10 ** d).toLocaleString('ro-RO', { minimumFractionDigits: d, maximumFractionDigits: d });
+const CALC = {
+  calcKeg(c, g, o) {
+    const v = g('vol'), p = g('port'), k = g('kegs'), s = g('sold');
+    if (!v || !p || !k) return;
+    const teo = v / p, pk = s / k, y = pk / teo * 100;
+    o('teo', fmt(teo, 0) + ' porții / keg'); o('perkeg', fmt(pk, 1));
+    o('yield', fmt(y, 1) + '% / pierdere ' + fmt(100 - y, 1) + '%');
+    o('verdict', y >= 93 ? 'În standard' : y >= 90 ? 'Atenție: verifică presiunea și turnarea' : 'Problemă: caută cauza azi');
+  },
+  calcHalba(c, g, o) {
+    const keg = g('keg'), vol = g('vol'), port = g('port'), loss = g('loss'), price = g('price'), vat = g('vat');
+    if (!keg || !vol || !port || !price) return;
+    const teo = vol / port, real = teo * (1 - loss / 100), cost = keg / real, net = price / (1 + vat / 100), pc = cost / net * 100;
+    o('port', fmt(teo, 0) + ' / ' + fmt(real, 0)); o('cost', fmt(cost) + ' lei'); o('net', fmt(net) + ' lei');
+    o('pc', fmt(pc, 1) + '%' + (pc <= 25 ? ' — în țintă' : pc <= 30 ? ' — la limită' : ' — prea mare'));
+    o('gp', fmt(net - cost) + ' lei'); o('sugg', fmt(cost / 0.22 * (1 + vat / 100)) + ' lei');
+  },
+  calcPers(c, g, o) {
+    const ore = g('ore'), rate = g('rate'), fix = g('fix'), sales = g('sales');
+    if (!sales || !rate) return;
+    const cost = ore * rate + fix, pct = cost / sales * 100, adj = (sales * 0.28 - cost) / rate;
+    o('cost', fmt(cost, 0) + ' lei'); o('pct', fmt(pct, 1) + '%' + (pct <= 30 ? ' — în țintă' : ' — peste țintă'));
+    o('sph', fmt(sales / (ore || 1), 0) + ' lei / oră'); o('adj', (adj >= 0 ? '+' : '') + fmt(adj, 0) + ' ore');
+  },
+};
+
+function wireCurs() {
+  const f = $('#cursForm');
+  if (f) f.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = $('#cursBtn'), err = $('#cursErr');
+    btn.disabled = true; btn.textContent = 'Se deschide…'; err.textContent = '';
+    try { await unlockCurs($('#cursPw').value, $('#cursRemember').checked); rerender(); }
+    catch (x) { err.textContent = 'Parolă greșită. Parola de manager e alta decât parola echipei.'; btn.disabled = false; btn.textContent = 'Deschide cursul'; }
+  });
+  const body = document.querySelector('.curs-body[data-m]');
+  if (!body || !C) return;
+  const mid = body.dataset.m;
+  // Widget-urile din pagina de evaluare
+  const w = { autoevaluare: widgetAuto, 'test-final': widgetTest, plan90: widgetPlan };
+  body.querySelectorAll('[data-widget]').forEach(el => { el.innerHTML = w[el.dataset.widget](); });
+  // Checklist-uri: bifele se salvează (pe telefon și online)
+  body.querySelectorAll('.check').forEach((box, bi) => {
+    const id = box.id || 'chk' + bi, items = [...box.querySelectorAll('input[type=checkbox]')], prog = box.querySelector('.prog');
+    const k = j => `${mid}:${id}:${j}`;
+    const paint = () => { items.forEach(c => c.parentElement.classList.toggle('done', c.checked)); if (prog) prog.textContent = items.filter(c => c.checked).length + '/' + items.length; };
+    items.forEach((c, j) => { c.checked = !!ST.check[k(j)]; c.addEventListener('change', () => { if (c.checked) ST.check[k(j)] = true; else delete ST.check[k(j)]; salveaza(); paint(); }); });
+    const reset = box.querySelector('[data-reset]');
+    if (reset) { reset.type = 'button'; reset.addEventListener('click', () => { items.forEach((c, j) => { c.checked = false; delete ST.check[k(j)]; }); salveaza(); paint(); }); }
+    paint();
+  });
+  // Calculatoare: valorile se păstrează
+  body.querySelectorAll('.calc[data-calc]').forEach(c => {
+    const fn = CALC[c.dataset.calc];
+    if (!fn) return;
+    const k = n => `${mid}:${c.dataset.calc}:${n}`;
+    const run = () => fn(c, n => +c.querySelector(`[name=${n}]`).value, (n, v) => { const el = c.querySelector(`[data-o=${n}]`); if (el) el.textContent = v; });
+    c.querySelectorAll('input').forEach(i => {
+      if (ST.calc[k(i.name)] !== undefined) i.value = ST.calc[k(i.name)];
+      i.addEventListener('input', () => { ST.calc[k(i.name)] = i.value; salveaza(); run(); });
+    });
+    run();
+  });
+  body.querySelectorAll('input[data-act=plan]').forEach(i => {
+    i.addEventListener('input', () => { const p = ST.final.plan; p[+i.dataset.i] = { ...(p[+i.dataset.i] || {}), [i.dataset.k]: i.value }; salveaza(); });
+    i.addEventListener('change', () => salveaza(`Plan de 90 de zile actualizat (obiectivul ${+i.dataset.i + 1})`));
+  });
+}
+// Acțiunile din curs (butoane), prin delegare
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]');
+  if (!b || !C || b.tagName === 'INPUT') return;
+  const act = b.dataset.act, mid = b.dataset.m, s = mid ? M(mid) : null;
+  if (act === 'citit') { s.citit = new Date().toISOString(); salveaza(`${nrModul(mid)} citit`); }
+  else if (act === 'q') {
+    const t = s.test = s.test || { ans: {} }; t.ans = t.ans || {};
+    t.ans[b.dataset.q] = +b.dataset.a;
+    const qs = intrebariDin(mid);
+    if (qs.every(q => t.ans[q.i] !== undefined)) {
+      t.ok = qs.filter(q => t.ans[q.i] === q.c).length;
+      if (t.ok >= 3) t.trecut = true;
+      salveaza(`Mini-test ${nrModul(mid)}: ${t.ok}/${qs.length}`);
+    } else salveaza();
+  }
+  else if (act === 'q-reset') { s.test = { ...(s.test || {}), ans: {} }; salveaza(); }
+  else if (act === 'aplicat') {
+    const nota = ($('#nota-' + mid)?.value || '').trim();
+    if (nota.length < 15) { $('#err-' + mid).textContent = 'Scrie în câteva cuvinte ce ai făcut (minimum 15 caractere).'; return; }
+    s.aplicat = { ts: new Date().toISOString(), nota }; salveaza(`${nrModul(mid)} aplicat: ${nota}`);
+  }
+  else if (act === 'aplicat-edit') { delete s.aplicat; salveaza(); }
+  else if (act === 'auto') { ST.final.auto[b.dataset.c] = +b.dataset.v; salveaza(COMPETENTE.every(([c]) => ST.final.auto[c]) ? 'Autoevaluare actualizată' : ''); }
+  else if (act === 'ft') { FT[b.dataset.q] = +b.dataset.a; }
+  else if (act === 'ft-score') {
+    const per = {}; let ok = 0;
+    C.intrebari.forEach((q, i) => { per[q.modul] = (per[q.modul] || 0) + (FT[i] === q.c ? 1 : 0); if (FT[i] === q.c) ok++; });
+    ST.final.test = { ok, per, ans: { ...FT }, ts: new Date().toISOString() };
+    salveaza(`Test final: ${ok}/20${finalTrecut(ST.final.test) ? ' (trecut)' : ''}`);
+  }
+  else if (act === 'ft-reset') { ST.final.test = null; FT = {}; salveaza(); }
+  else if (act === 'curs-iesi') { cursStore.clear(); progStore.clear(); C = null; ST = null; CKEY = ''; }
+  else return;
+  rerender();
+});
+// Arthur vede progresul la zi: la fiecare intrare în curs, cerem ultima versiune.
+window.addEventListener('hashchange', async () => {
+  if (C && parseHash().parts[0] === 'curs' && SYNC.st !== 'pending' && await pull()) rerender();
+});
 
 // ---------- Căutare ----------
 let INDEX = [];
