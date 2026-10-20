@@ -623,7 +623,7 @@ function fisaHtml() {
   const L = D.loc, s = status();
   const prog = L.program.map((z, i) => `<div class="kv ${ZILE[s.azi] === z.zi ? 'now' : ''}"><span class="k">${esc(z.zi)}${z.detaliu ? `<small>${esc(z.detaliu)}</small>` : ''}</span><span class="v">${z.ore ? esc(z.ore) : TODO()}</span></div>`).join('');
   const cont = L.contacte.map(c => `<div class="kv"><span class="k">${c.rol ? rolPill(c.rol) + ' ' : ''}${esc(c.functie)}<small>${c.nume ? esc(c.nume) : TODO('nume de completat')}</small></span>
-    <span class="v">${c.telefon ? `<a href="tel:${esc(c.telefon.replace(/\s/g, ''))}">${esc(c.telefon)}</a>` : TODO('telefon de completat')}</span></div>`).join('');
+    <span class="v">${c.telefon ? (/^[\d\s+()-]+$/.test(c.telefon) ? `<a href="tel:${esc(c.telefon.replace(/[^\d+]/g, ''))}">${esc(c.telefon)}</a>` : esc(c.telefon)) : TODO('telefon de completat')}</span></div>`).join('');
   const ech = L.echipamente.map(e => `<div class="kv"><span class="k">${esc(e.nume)}${e.detaliu ? `<small>${esc(e.detaliu)}</small>` : ''}</span><span class="v">${e.raportezi ? esc(e.raportezi) : TODO()}</span></div>`).join('');
   const n = fisaTodos();
   return `<section class="block hi"><div class="wrap">
@@ -769,7 +769,7 @@ function viewProcedures(params) {
 function roleCard(r) {
   if (!r) return '';
   return `<a class="role-card rv" href="#/r/${enc(r.cod)}"><span class="pill big r-${esc(r.cod)}">${esc(r.cod)}</span><h3>${esc(r.nume)}</h3><p>${esc(r.raspunde)}</p>
-    <div class="people">${r.oameni.length ? r.oameni.map(o => `<span class="person">${esc(o)}</span>`).join('') : TODO('cine? de completat')}</div></a>`;
+    <div class="people">${r.oameni.length ? r.oameni.map(o => `<span class="person">${esc(o)}</span>`).join('') : TODO('încă nealocat')}</div></a>`;
 }
 function viewRoles() {
   return `
@@ -798,7 +798,7 @@ function viewRole(r) {
     <span class="eyebrow">Fișa de lucru · ${esc(r.cod)}</span>
     <h1 class="mega">${esc(r.nume)}</h1>
     <div class="profile"><p>${esc(r.raspunde)}</p></div>
-    <div class="people" style="margin-top:16px">${r.oameni.length ? r.oameni.map(o => `<span class="person">${esc(o)}</span>`).join('') : TODO('cine are acest rol? de completat')}</div>
+    <div class="people" style="margin-top:16px">${r.oameni.length ? r.oameni.map(o => `<span class="person">${esc(o)}</span>`).join('') : TODO('încă nealocat')}</div>
   </div></section>
   <section class="block"><div class="wrap">
     <div class="stats rv" style="margin-bottom:40px">
