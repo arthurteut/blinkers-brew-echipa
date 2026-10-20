@@ -2,7 +2,7 @@
 
 Pagina internă a echipei din taproom-ul Blinkers Brew (Strada Industriei nr. 7,
 Timișoara): cine face, ce face, când și cum se verifică. Adresa:
-**echipa.blinkersbrew.ro**.
+**echipa.blinkersbrew.com**.
 
 ## Ce conține
 

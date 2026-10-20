@@ -1,4 +1,4 @@
--- Progresul cursului de manager Blinkers Brew (echipa.blinkersbrew.ro).
+-- Progresul cursului de manager Blinkers Brew (echipa.blinkersbrew.com).
 -- Aplicat în proiectul Supabase „atc-toolkit”. Tabelul nu e accesibil direct:
 -- RLS activ, fără politici. Se citește și se scrie doar prin cele două funcții,
 -- care cer cheia derivată din parola de manager:
